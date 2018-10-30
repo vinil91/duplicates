@@ -25,7 +25,7 @@ export const onlyDuplicates = input => {
 
 ```
 
-The idea is to filter sorted array, when we traverse it left to right. The output array will composed of the rightmost entry of duplicate value in sorted input array.
+The idea is to filter sorted array, when we traverse it from left to right. The output array will be composed of the rightmost entry of duplicate value in sorted input array.
 If we will include not only the rightmost duplicate, value will appear in output array more than once. It's not our case.
 
 For the element of sorted array to be "the RIGHTMOST DUPLICATE", 3 conditions must to be met:
@@ -61,7 +61,7 @@ export const onlyDuplicates = input => {
       .filter((key, index) => amountOfNumberEntriesInArray[key] > 1);
 };
 ```
-The idea is to filter array, when we traverse it left to right and reduce it to the the object, with property keys are elements value, and property values are amount of value entries in input array.
+The idea is to filter array, when we traverse it from left to right and reduce it to the the object, where property keys are elements value, and property values are amount of value entries in input array.
 ```
   let amountOfNumberEntriesInArray = input.reduce((accumulator, currentValue) => {
     if (!accumulator.hasOwnProperty(currentValue)) {
@@ -74,7 +74,7 @@ The idea is to filter array, when we traverse it left to right and reduce it to 
   }, {});
 ```
 
-Next, we select such keys whose property values are more than one, that is occur in array more than one time.
+Next, we select such keys whose property values are greater than one, that occurs in array more than one time.
 ```
   return Object.keys(amountOfNumberEntriesInArray)
     .map(item => parseInt(item))
@@ -105,7 +105,7 @@ export const onlyDuplicates = input => {
 };
 ```
 
-First, we shape the array of unique values from the input string.
+Firstly, we shape the array of unique values from the input string.
 ```
 export const onlyDuplicates = input => {
   const uniqueValues = [];
@@ -115,7 +115,7 @@ export const onlyDuplicates = input => {
     }
   });
 ```
-Second, we traverse an array if unique Values and count, how often values has found in the array.
+Secondly, we traverse an array of unique Values, and count, how often values has found in the array.
 ```
   let duplicates = uniqueValues.filter(uniqueItem => {
     let count = 0;
@@ -125,7 +125,7 @@ Second, we traverse an array if unique Values and count, how often values has fo
       }
     });
 ```
-If it has found more than once, we put in the output array.
+If it was found more than once, we put in the output array.
 ```
     return count > 1;
 ```
